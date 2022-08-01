@@ -36,6 +36,8 @@
     "scripts": {
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ]
+        ],
+        "tests": "./vendor/bin/phpunit",
+        "serve": "php -S localhost:8000 -t public"
     }
 }

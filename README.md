@@ -1,3 +1,14 @@
+# To Run the project, please do the following:
+
+### run `composer install` - This should install the required packages and dependencies
+### run `composer run-script serve` - This will start local development server on `localhost:8000`
+
+This should be enough to get you up and running.
+
+# To run the tests, execute the following command in the terminal
+
+### run `composer run-script tests` - This will run all the test suites
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
