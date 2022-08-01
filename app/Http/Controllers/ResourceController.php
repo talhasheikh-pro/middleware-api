@@ -9,7 +9,9 @@ use Psr\Http\Message\RequestInterface;
 
 class ResourceController extends Controller
 {
+    /** @var GuzzleHttp\Client */
     public $client;
+
     /**
      * Create a new controller instance.
      *
@@ -19,16 +21,19 @@ class ResourceController extends Controller
     {
         
         $handler = HandlerStack::create();
-        $handler->push(Middleware::mapRequest(function (RequestInterface $request) {
-            $token = env('AUTH_TOKEN');
-            return $request->withHeader('Authorization', "Bearer {$token}");
-        }));
+        $handler->push(
+            Middleware::mapRequest(function (RequestInterface $request) {
+                    $token = env('AUTH_TOKEN');
+                    return $request->withHeader('Authorization', "Bearer {$token}");
+                }
+            )
+        );
 
         $this->client = new Client([
             // Base URI is used with relative requests
-            'base_uri' => 'https://api.dev.elucidate.co',
+            'base_uri' => env('BASE_API_URI'),
             // You can set any number of default request options.
-            'timeout'  => 2.0,
+            'timeout'  => env('BASE_API_TIMEOUT'),
             // Add global header
             'handler' => $handler,
         ]);
