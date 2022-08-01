@@ -43,7 +43,7 @@ class ResourceController extends Controller
      * Creates a post body for Ticket API
      * @param {string} $resource
      */
-    public function getBodyForTicket($resource)
+    public function getBodyForTicket(string $resource)
     {
         return [
             "project" => "projects/2a9caad1-19c7-4340-949f-30b81a8a043e",
@@ -58,7 +58,7 @@ class ResourceController extends Controller
      * Checks if the institute exists, and returns the count, else creates a ticket
      * @param {string} $resource
      */
-    public function verifyResource($resource)
+    public function verifyResource(string $resource)
     {
         try {
             $response = $this->client->get("/institutions?fullSearch={$resource}");
